@@ -1,4 +1,4 @@
-# wordpress-Nuke
+# wordpress Nuking
 This is a simple plugin to enable you to reduce your wordpress fingerprint to almost zero. Included here in is a : 
 htaccess file that is a complementary to do some further hardening not done by the plugin and the bit for the plugin is handled by itself. 
 
