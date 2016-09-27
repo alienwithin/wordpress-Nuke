@@ -1,0 +1,84 @@
+# BEGIN WordPress
+#Disable Directory Listing
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+#Protect Include Files From Direct Access
+RewriteRule ^wp-admin/includes/ - [F,L]
+RewriteRule !^wp-includes/ - [S=3]
+RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+RewriteRule ^wp-includes/theme-compat/ - [F,L]
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#Protect From Script Injection via URL
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|[|%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|[|%[0-9A-Z]{0,2})
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+#Block Access to XMLRPC other than from Localhost
+<Files xmlrpc.php>
+order deny,allow
+deny from all
+allow from 127.0.0.1
+</Files>
+#Protect WP-Config File
+<files wp-config.php>
+order allow,deny
+deny from all
+satisfy all
+</files>
+#Protect wordpress install file after successful installation to ensure fingerprinting can't be done through its source
+<files install.php>
+order allow,deny
+deny from all
+satisfy all
+</files>
+#Protect the Htaccess file from direct access
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+#Deny Direct access to html,txt,md and xml files
+<Files ~ "\.(txt|html|md|xml)$">
+order allow,deny
+deny from all
+satisfy all
+</Files>
+#Deny direct access to wp-links-opml file as it can be used for fingerprinting
+<files wp-links-opml.php>
+order allow,deny
+deny from all
+satisfy all
+</files>
+<files wp-cron.php>
+order allow,deny
+deny from all
+satisfy all
+</files>
+#This file is a snitch even with a new access key to access the server it will redirect to it. However if you need registrations on your site , you need another workaround.
+<files wp-signup.php>
+order allow,deny
+deny from all
+satisfy all
+</files>
+#Deny direct access to wp-emoji-loader.min file as it can be used for fingerprinting
+<files wp-emoji-loader.min.js>
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+#Add some secure headers to responses from your server
+Header always set x-xss-protection "1; mode=block"
+Header always set X-Content-Type-Options "nosniff"
+
+#Set Custom Error Pages , this is especially useful if you have verbose errors on default pages. 
+ErrorDocument 403 /403.php
+ErrorDocument 500 /500.php
+ErrorDocument 404 /
