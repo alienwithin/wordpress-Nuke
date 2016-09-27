@@ -16,4 +16,12 @@ Currently the plugin does some various modifications to wordpress on the fronten
  The articles that influenced this are as below: 
 - [Hardening through htaccess](http://munir.skilledsoft.com/wordpress-hardening-via-htaccess/)
 - [Hardening through Patching the theme](http://munir.skilledsoft.com/wordpress-hardening-patching-the-theme/)
--  [Hardening through Plugins](http://munir.skilledsoft.com/wordpress-hardening-using-plugins/)
+- [Hardening through Plugins](http://munir.skilledsoft.com/wordpress-hardening-using-plugins/)
+
+A simple PoC on a wordpress 4.6.1 is as below: 
+Before using the htaccess and plugin the results are as below: 
+![Scan Before usage](https://github.com/alienwithin/wordpress-Nuke/raw/master/default_wordpress_install_scan.jpg)
+
+After Using the plugin and implementing the directives on htaccess
+
+![Scan After usage](https://github.com/alienwithin/wordpress-Nuke/raw/master/default_wordpress_install_plugin.jpg)
