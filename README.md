@@ -22,6 +22,6 @@ A simple PoC on a wordpress 4.6.1 is as below:
 Before using the htaccess and plugin the results are as below: 
 ![Scan Before usage](https://github.com/alienwithin/wordpress-Nuke/raw/master/default_wordpress_install_scan.jpg)
 
-After Using the plugin and implementing the directives on htaccess
+After Using the plugin and implementing the directives on [htaccess](https://github.com/alienwithin/wordpress-Nuke/blob/master/htaccess.txt)
 
 ![Scan After usage](https://github.com/alienwithin/wordpress-Nuke/raw/master/default_wordpress_install_plugin.jpg)
