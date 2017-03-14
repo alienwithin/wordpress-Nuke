@@ -14,9 +14,9 @@ Currently the plugin does some various modifications to wordpress on the fronten
  * Remove unnecessary Junk in header
  
  The articles that influenced this are as below: 
-- [Hardening through htaccess](http://munir.skilledsoft.com/wordpress-hardening-via-htaccess/)
-- [Hardening through Patching the theme](http://munir.skilledsoft.com/wordpress-hardening-patching-the-theme/)
-- [Hardening through Plugins](http://munir.skilledsoft.com/wordpress-hardening-using-plugins/)
+- [Hardening through htaccess](https://www.alien-within.com/wordpress-hardening-via-htaccess/)
+- [Hardening through Patching the theme](https://www.alien-within.com/wordpress-hardening-patching-the-theme/)
+- [Hardening through Plugins](https://www.alien-within.com/wordpress-hardening-using-plugins/)
 
 A simple PoC on a wordpress 4.6.1 is as below: 
 Before using the htaccess and plugin the results are as below: 
